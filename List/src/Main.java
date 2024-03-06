@@ -7,9 +7,7 @@ public class Main {
 
         idades.add(21);
         idades.add(19);
-        idades.add(19);
-        idades.add(35);
-        idades.add(19);
+        idades.insert(48);
         idades.add(999);
 
         System.out.println(idades);

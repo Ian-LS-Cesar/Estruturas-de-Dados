@@ -36,14 +36,40 @@ public class StaticList implements List{
 
     @Override
     public void insert(int value) {
-        // TODO Auto-generated method stub
+        if(isFull()){
+            throw new FullListException("Static List is Full");
+        }
         
+        for (int i = size; i > 0; i--){
+            staticList[i] = staticList[i - 1];
+        }
+        
+        staticList[0] = value;
+        size++;
     }
 
+    private void checkIndex(int index){
+        if (index < 0 || index >= MAX_SIZE);
+        throw new IndexOutOfBoundsException("Index " + index + " is invalid");
+    }
     @Override
     public void insert(int index, int value) {
-        // TODO Auto-generated method stub
-        
+        if(isFull()){
+            throw new FullListException("Static List is Full");
+        }
+        checkIndex(index);
+
+        if (index>=size){
+            add(value);
+        }else{
+            for (int i = size; i > index; i--){
+                staticList[i] = staticList[i - 1];
+            }
+            staticList[index] = value;
+            size++;
+            
+        }
+
     }
 
     @Override
@@ -64,14 +90,24 @@ public class StaticList implements List{
 
     @Override
     public int removeFirst() throws EmptyListException {
-        // TODO Auto-generated method stub
-        return 0;
+        if(isEmpty()){
+            throw new EmptyListException("Empty List Exception");
+        }
+        int value = staticList[0];
+        for(int i = 0; i < size - 1; i++){
+            staticList[i] = staticList[i+1];
+        }
+        size--;
+        return value;
     }
 
     @Override
     public int removeLast() throws EmptyListException {
-        // TODO Auto-generated method stub
-        return 0;
+        if(isEmpty()){
+            throw new EmptyListException("Empty List Exception");
+        }
+
+        return staticList[--size];
     }
 
     @Override
