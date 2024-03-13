@@ -1,16 +1,71 @@
+import Entidades.ArrayList;
 import Entidades.List;
 import Entidades.StaticList;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-        List idades = new StaticList();
+    public static void main(String[] args) {
+        List idades = new ArrayList();
 
-        idades.add(21);
-        idades.add(19);
-        idades.insert(48);
-        idades.add(999);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
+        idades.add(1);
 
         System.out.println(idades);
+      
+        
     }
 }
-

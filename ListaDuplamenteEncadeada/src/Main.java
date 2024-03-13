@@ -57,10 +57,12 @@ class LinkedList<E> implements List<E>{
     private class Node{
         E value;
         Node next;
-    
+        Node previous; 
+        
         public Node(E value){
             this.value = value;
             next = null;
+            previous = null;
         }
     }
 
@@ -88,9 +90,11 @@ class LinkedList<E> implements List<E>{
         if(isEmpty()){
             head = newNode;
             tail = newNode;
-        }else{
+        }else if (size > 1){
             tail.next = newNode;
+            newNode.previous = tail;
             tail = newNode;
+
         }
         size++;
         
@@ -126,6 +130,7 @@ class LinkedList<E> implements List<E>{
             tail = newNode;            
         }else{
             newNode.next = head;
+            head.previous = newNode;
             head = newNode;
         }
 
