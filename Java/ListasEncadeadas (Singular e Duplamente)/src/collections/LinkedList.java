@@ -20,8 +20,7 @@ public class LinkedList<E> implements List<E> {
 
     public LinkedList(){
         size = 0;
-        head = newNode;
-        tail = newNode;
+        head = null;
         tail = null;
     }
 
@@ -36,62 +35,177 @@ public class LinkedList<E> implements List<E> {
     public void add(E value) {
         Node newNode = new Node(value);
 
-        if()
+        if(isEmpty()){
+            head = newNode;
+            tail = newNode;
+        }else{
+            tail.next = newNode;
+            tail = newNode;
+        }
+        
+        size++;
         
     }
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
+        size = 0;
+        head = null;
+        tail = null;
         
     }
 
     @Override
     public E get(int index) throws IndexOutOfBoundsException {
-        // TODO Auto-generated method stub
-        return null;
-    }
+        if(isEmpty()){
+            throw new EmptyListException("Linked List is Empty!!!");
+        }
+        if(index >= size || index < 0){
+            throw new IndexOutOfBoundsException("Illegal index "+ index + ". Legal indexes are [0 - "+(size-1)+"]");
+        }
 
+        return getNode(index).value;
+    }
+    
     @Override
-    public void insert(E value) {
-        // TODO Auto-generated method stub
+    public void set(int index, E value) throws IndexOutOfBoundsException,EmptyListException {
+        if(isEmpty()){
+            throw new EmptyListException("Linked List is Empty!");
+        }
+        if(index>=size || index < 0){
+            throw new IndexOutOfBoundsException("Illegal index "+index+". Legal indexes are [0 - "+(size-1)+"]");
+        }
+
+        getNode(index).value = value;
         
     }
 
     @Override
+    public void insert(E value) {
+        Node newNode = new Node(value);
+
+        if (isEmpty()){
+            head = newNode;
+            tail = newNode;
+        }else{
+            newNode.next = head;
+            head = newNode;
+        }
+        
+        size++;
+        
+    }
+
+    private Node getNode(int index){
+        Node auxNode = head;
+        int i = 0;
+        while (i < index){
+            auxNode = auxNode.next;
+            i++;
+        }
+        
+        return auxNode;
+    }
+
+    @Override
     public void insert(int index, E value) throws IndexOutOfBoundsException {
-        // TODO Auto-generated method stub
+        if (index <= 0){
+            insert(value);
+        }else if (index >= size){
+            add(value);
+        }else{
+            Node newNode = new Node(value);
+            Node auxNode = getNode(index -1 );
+            newNode.next = auxNode.next;
+            auxNode.next = newNode;
+            size++;
+        }
         
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        return false;
+        return size==0;
     }
 
     @Override
     public E removeByIndex(int index) throws EmptyListException, IndexOutOfBoundsException {
-        // TODO Auto-generated method stub
-        return null;
+        if(isEmpty()){
+            throw new EmptyListException("Linked List is Empty!!!");
+        }
+        if(index >= size || index < 0){
+            throw new IndexOutOfBoundsException("Illegal index "+ index + ". Legal indexes are [0 - "+(size-1)+"]");
+        }
+        E value = null;
+        if(index == 0){
+            value = removeFirst();
+        }else if(index == size - 1){
+            value = removeLast();
+        }else{
+            Node auxNode1 = getNode(index - 1);
+            Node auxNode2 = auxNode1.next;
+            value = auxNode2.value;
+            auxNode1.next = auxNode2.next;
+            auxNode2.next = null;
+            size--;
+        }
+        return value;
     }
 
     @Override
     public E removeFirst() throws EmptyListException {
-        // TODO Auto-generated method stub
-        return null;
+        if(isEmpty()){
+            throw new EmptyListException("Linked List is Empty!");
+        }
+        Node auxNode = head;
+        if(size==1){
+            head = null;
+            tail = null;
+        }else{
+            head = auxNode.next;
+            auxNode.next = null;
+        }
+
+        size--;
+        return auxNode.value;
     }
 
     @Override
     public E removeLast() throws EmptyListException {
-        // TODO Auto-generated method stub
-        return null;
+        if(isEmpty()){
+            throw new EmptyListException("Linked List is Empty!");
+        }
+        E value = tail.value;
+        if(size==1){
+            head = null;
+            tail = null;
+        }else{
+            Node auxNode = getNode(size-2);
+            tail = auxNode;
+            tail.next = null;
+        }
+        size--;
+
+        return value;
     }
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        return 0;
+        return size;
     }
 
+    @Override 
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+        Node auxNode = head;
+        while(auxNode != null){
+            sb.append(auxNode.value);
+            if(auxNode.next != null){
+                sb.append(", ");
+            }
+            auxNode = auxNode.next;
+        }
+
+        return sb.append("]").toString();
+    }
 }

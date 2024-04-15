@@ -8,10 +8,10 @@ public interface List {
     void insert(int value);
     void insert(int index, int value) throws IndexOutOfBoundsException;
     boolean isEmpty();
-    int removeLast() throws EmptyListException;
     int removeFirst() throws EmptyListException;
-    int removeByIndex(int index) throws EmptyListException, IndexOutOfBoundsException;
-    void set(int index, int value) throws IndexOutOfBoundsException;
+    int removeLast() throws EmptyListException;
+    int removeByIndex(int index) throws IndexOutOfBoundsException, EmptyListException;
     int get(int index) throws IndexOutOfBoundsException;
-    void clear();    
+    void set(int index, int value) throws IndexOutOfBoundsException;
+    void clear();
 }
