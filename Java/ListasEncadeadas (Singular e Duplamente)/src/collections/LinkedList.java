@@ -115,7 +115,7 @@ public class LinkedList<E> implements List<E> {
             add(value);
         }else{
             Node newNode = new Node(value);
-            Node auxNode = getNode(index -1 );
+            Node auxNode = getNode(index - 1);
             newNode.next = auxNode.next;
             auxNode.next = newNode;
             size++;

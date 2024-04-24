@@ -179,7 +179,6 @@ public class DoublyLinkedList<E> implements List<E> {
             tail = null;
         }else{
             tail = tail.previous;
-            // tail.next.previous = null;
             tail.next = null;           
             
         }
