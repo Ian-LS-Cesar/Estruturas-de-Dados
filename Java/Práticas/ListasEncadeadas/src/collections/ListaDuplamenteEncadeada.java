@@ -209,4 +209,49 @@ public class ListaDuplamenteEncadeada<E> implements Lista<E> {
         return sb.append("]").toString();
     }
 
+    public String listaInvertida() {
+        StringBuilder sb = new StringBuilder("[");
+        No noAux = fim;
+        while(noAux != null){
+            sb.append(noAux.valor);
+            if(noAux.anterior != null){
+                sb.append(", ");
+            }
+            noAux = noAux.anterior;
+        }
+
+        return sb.append("]").toString();
+    }
+
+    public void removerMeio(){
+        if(estaVazio()){
+        throw new EmptyListException("A Lista está vazia!!!");
+        }
+        int metade = tamanho / 2;
+
+        No noAux = comeco;
+
+        for(int i = 0; i < metade; i++){
+            noAux = noAux.proximo;
+        }
+        noAux.anterior.proximo = noAux.proximo;
+        if(noAux.proximo != null){
+            noAux = noAux.proximo;
+        }
+        tamanho--;
+    }
+    
+    public void removerLados(){
+        if(estaVazio()){
+            throw new EmptyListException("A Lista está vazia!!!");
+        }
+        comeco = comeco.proximo;
+        comeco.anterior = null;
+        No noAux = comeco;
+        while(noAux.proximo != null){
+            noAux = noAux.proximo;
+        }
+        noAux = noAux.anterior;
+        noAux.proximo = null;
+    }
 }

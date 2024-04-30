@@ -1,26 +1,20 @@
 import collections.SortedPriorityQueue;
-import collections.UnsortedPriorityQueue;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        SortedPriorityQueue<Integer,String> filaPrioridade = new SortedPriorityQueue<>();
+        Scanner leitor = new Scanner(System.in);
 
-        filaPrioridade.insert(0, "Gabriel");
-        filaPrioridade.insert(1, "Luana");
-        filaPrioridade.insert(5, "Lívia");
-        filaPrioridade.insert(2, "Sérgio");
-        filaPrioridade.insert(0, "Samuel");
-        System.out.println(filaPrioridade);
-        
-        System.out.println(filaPrioridade.remove());
-        System.out.println(filaPrioridade);
-        System.out.println(filaPrioridade.remove());
-        System.out.println(filaPrioridade);
-        System.out.println(filaPrioridade.remove());
-        System.out.println(filaPrioridade);
-        System.out.println(filaPrioridade.remove());
-        System.out.println(filaPrioridade);
-        System.out.println(filaPrioridade.remove());
-        System.out.println(filaPrioridade);
+        int N = leitor.nextInt();
+
+        for (int i = 0; i < N; i++){
+            int M = leitor.nextInt();
+            SortedPriorityQueue<Integer,Integer> fila = new SortedPriorityQueue<>();
+            for (int j = 1; j <= M; j++){
+                int notaAluno = leitor.nextInt();
+                fila.insert(notaAluno,notaAluno);
+            }
+            System.out.println(fila);
+        }
     }
 }
