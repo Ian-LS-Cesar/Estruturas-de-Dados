@@ -1,6 +1,5 @@
 package collections;
 
-import java.nio.channels.ScatteringByteChannel;
 
 public class DoublyLinkedDeque<E> implements Deque<E> {
     class Node{
