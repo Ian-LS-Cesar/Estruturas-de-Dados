@@ -5,7 +5,7 @@ import exceptions.FullListException;
 
 public interface Lista<E> {
     void adicionar(E valor) throws FullListException;
-    void inserir(E valor) throws FullListException;
+    void inserirInicio(E valor) throws FullListException;
     void inserir(int indice, E valor) throws FullListException, IndexOutOfBoundsException;
     E removerUltimo() throws EmptyListException;
     E removerPrimeiro() throws EmptyListException;

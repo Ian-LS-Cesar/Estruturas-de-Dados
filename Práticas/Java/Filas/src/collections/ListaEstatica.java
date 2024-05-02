@@ -29,7 +29,7 @@ public class ListaEstatica<E> implements Lista<E> {
     }
 
     @Override
-    public void inserir(E valor) throws FullListException {
+    public void inserirInicio(E valor) throws FullListException {
         if(estaCheia()){
             throw new FullListException("A Lista está cheia!");
         }

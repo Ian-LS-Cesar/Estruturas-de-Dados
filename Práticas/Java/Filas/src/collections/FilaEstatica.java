@@ -5,34 +5,44 @@ import exceptions.FullStackException;
 
 public class FilaEstatica<E> implements Fila<E> {
 
+    private ArrayLista<E> fila;
+
+    public FilaEstatica(){
+        fila = new ArrayLista<>();
+    }
+
     @Override
-    public void desenfileirar() throws EmptyStackException {
-        // TODO Auto-generated method stub
+    public E desenfileirar() throws EmptyStackException {
+        return fila.removerPrimeiro();
         
     }
 
     @Override
     public void enfileirar(E valor) throws FullStackException {
-        // TODO Auto-generated method stub
+        fila.adicionar(valor);
         
     }
 
     @Override
     public boolean estaVazio() {
-        // TODO Auto-generated method stub
-        return false;
+        return fila.estaVazio();
     }
 
     @Override
     public E primeiro() throws EmptyStackException {
-        // TODO Auto-generated method stub
-        return null;
+        return fila.pegar(0);
     }
 
     @Override
     public int tamanho() {
-        // TODO Auto-generated method stub
-        return 0;
+        return fila.tamanho;
     }
+
+    @Override
+    public String toString() {
+        return "Primeiro\n \\/ \n" + fila.toString();
+    }
+
+    
     
 }

@@ -26,8 +26,8 @@ public class ArrayLista<E> extends ListaEstatica<E> {
     }
 
     @Override
-    public void inserir(E valor)  {
-        super.inserir(valor);
+    public void inserirInicio(E valor)  {
+        super.inserirInicio(valor);
     }
 
     @Override
