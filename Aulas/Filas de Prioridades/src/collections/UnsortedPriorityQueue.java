@@ -1,7 +1,5 @@
 package collections;
 
-import javax.management.RuntimeErrorException;
-
 public class UnsortedPriorityQueue<K, V> extends AbstractPriorityQueue<K, V> {
 
     @Override
