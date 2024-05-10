@@ -2,30 +2,27 @@ package collections;
 
 public class HashEntry<K,V> implements Entry<K,V> {
     private K key;
-    private V value;   
+    private V value;
 
+    
+    
     public HashEntry(K key, V value) {
         this.key = key;
         this.value = value;
     }
 
     public K getKey() {
-        return key;
+        // TODO Auto-generated method stub
+        return null;
     }
-   
+    
     public V getValue() {
-        return value;
+        // TODO Auto-generated method stub
+        return null;
     }
+    
     public void setValue(V value) {
         this.value = value;
     }
-
-    @Override
-    public String toString() {
-        return "{" + key + ":" + value + "}";
-    }
-
-    
-
     
 }
