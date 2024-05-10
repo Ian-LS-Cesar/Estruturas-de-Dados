@@ -1,11 +1,12 @@
 package collections;
 
 public class Node<E> {
-    E entry;
-    Node<E> next;
-    Node<E> previous;
+    E Entry;
+    Node next;
+    Node previous;
+    
     public Node(E entry) {
-        this.entry = entry;
-    }    
-
+        Entry = entry;
+    }
+    
 }

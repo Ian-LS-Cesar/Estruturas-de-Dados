@@ -1,7 +1,7 @@
 package collections;
 
-public interface Entry<K,V> {
+public interface Entry<K,V>{
     K getKey();
-    V getValue();    
+    V getValue ();
     void setValue(V value);
 }
